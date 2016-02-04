@@ -42,6 +42,7 @@
           <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-core-asl:1.9.13" />
           <element id="library" level="project" name="Maven: org.apache.commons:commons-lang3:3.4" />
           <element id="library" level="project" name="Maven: javax.validation:validation-api:1.1.0.Final" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.14" />
         </element>
       </element>
       <element id="directory" name="META-INF">

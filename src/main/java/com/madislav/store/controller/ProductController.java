@@ -89,7 +89,7 @@ public class ProductController {
 	    ModelAndView mav = new ModelAndView();
 	    mav.addObject("exception", exception);
 	    mav.addObject("url", req.getRequestURL());
-	    mav.setViewName("product/error");
+	    mav.setViewName("error");
 	    return mav;
 	  }
 
