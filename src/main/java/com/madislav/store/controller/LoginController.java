@@ -38,7 +38,7 @@ public class LoginController {
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
     public String logout(HttpSession session) {
         session.removeAttribute("loggedInUser");
-        return "login";
+        return "logout"; //or login
     }
 
 }

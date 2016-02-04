@@ -17,6 +17,7 @@
 			</c:when>
 			<c:otherwise>
 				Hello ${loggedInUser.firstName}! &nbsp;
+				<a href="cart">Go To Cart</a>
 				<a href="logout">Logout</a>
 			</c:otherwise>
 		</c:choose>
