@@ -20,21 +20,29 @@
 				<a href="logout">Logout</a>
 			</c:otherwise>
 		</c:choose>
-		<a href="users?registration">Register</a>
+
 	</div>
-		<div class="tab-container">
-		<div style="float:right">
-			<a href="categories?create">Cat</a>
-		</div>
-		<div style="float:right">
-			<a href="products?create">Pro</a>
-		</div>
+
+		<div class="nav nav-pills">
+			<div style="float:right; margin-right: auto">
+				<a href="categories?create">Categories</a>
+			</div>
+			<div style="float:right">
+				<a href="products?create">Products</a>
+			</div>
+			<div>
+				<a href="login">Login</a>
+			</div>
+			<div>
+				<a href="users?registration">Sign Up</a>
+			</div>
 		</div>
 
 	<h1>${message}</h1>
 	<h2>Products:</h2>
 	<c:forEach var="item" items="${productList}">
-		<c:out value="${item.name}"/> <br/>
+		<c:out value="${item.name}"/> &nbsp;
+		<a href="cart/add/${item.id}">Add to cart</a> <br/>
 	</c:forEach>
 
 	<c:forEach var="category" items="${allCategories}">
