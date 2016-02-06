@@ -32,8 +32,9 @@
         <td></td>
         <td>$${cart.totalCast}</td>
       </tr>
-
     </table>
+    <input type="submit" value="Place Order"/>
+
   </form>
 </div>
 </body>

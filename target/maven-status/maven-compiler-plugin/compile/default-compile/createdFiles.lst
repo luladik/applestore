@@ -22,5 +22,6 @@ com\madislav\store\ProductSearchValidator.class
 com\madislav\store\model\service\ProductService.class
 com\madislav\store\model\service\PurchaseItemService.class
 com\madislav\store\model\dao\PurchaseDao.class
+com\madislav\store\controller\CartController.class
 com\madislav\store\controller\SearchController.class
 com\madislav\store\model\dao\PurchaseItemDao.class

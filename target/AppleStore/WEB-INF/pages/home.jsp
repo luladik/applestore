@@ -8,8 +8,12 @@
 	<title><spring:message code="welcome"/></title>
 </head>
 <body>
+<%--<jsp:useBean id="loggedInUser" scope="request"--%>
+			 <%--class="com.madislav.store.model.Customer"/>--%>
+
 	<div class="container">
 	<div style="float:right; margin-top: -30px;">
+		<p>${loggedInUser.name}</p>
 		<c:choose>
 			<c:when test="${empty loggedInUser.name}">
 				<a href="users?registration"><spring:message code="homePage.registrationLink"/> </a>
@@ -21,9 +25,7 @@
 				<a href="logout">Logout</a>
 			</c:otherwise>
 		</c:choose>
-
 	</div>
-
 		<div class="nav nav-pills">
 			<div style="float:right; margin-right: auto">
 				<a href="categories?create">Categories</a>

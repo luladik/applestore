@@ -36,6 +36,7 @@
 	
 	<h2>Search Results:</h2>
 	
+	<%--<jsp:useBean id="results" scope="request" type="com.madislav.store.controller.sea"/>--%>
 	<c:forEach var="product" items="${results}">
 		<c:out value="${product.name}"/> <br/>
 	</c:forEach>

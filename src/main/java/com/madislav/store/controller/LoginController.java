@@ -26,19 +26,22 @@ public class LoginController {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String verifyLogin(@RequestParam String userId, @RequestParam String password,
                               HttpSession session, Model model) {
-        Customer customer = customerService.loginCustomer(userId, password);
+
+         Customer customer = customerService.loginCustomer(userId, password);
+
         if (customer == null) {
             model.addAttribute("loginError", "Error logging in. Please, try again");
             return "login";
         }
-        model.addAttribute("loggedInUser", customer);
+//        session.setAttribute("loggedInUser", customer);
+        session.setAttribute("loggedInUser", customer);
         return "redirect:/";
     }
 
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
     public String logout(HttpSession session) {
         session.removeAttribute("loggedInUser");
-        return "logout"; //or login
+        return "login"; //or login
     }
 
 }

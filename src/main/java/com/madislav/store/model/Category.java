@@ -1,5 +1,8 @@
 package com.madislav.store.model;
 import org.codehaus.jackson.annotate.JsonIgnore;
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
+import org.springframework.web.context.WebApplicationContext;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -11,6 +14,8 @@ import java.util.List;
 @Entity
 @Table(name = "category")
 @XmlRootElement
+@Scope(value= WebApplicationContext.SCOPE_SESSION,
+		proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class Category {
 	
 	@Id
