@@ -13,7 +13,9 @@
 
 	<div class="container">
 	<div style="float:right; margin-top: -30px;">
+		<%--КАКОГО ХУЯ ОНО РАБОТАЕТ ТОЛЬКО С ЭТОЙ ГОВНИНОЙ??--%>
 		<p>${loggedInUser.name}</p>
+		<%--??--%>
 		<c:choose>
 			<c:when test="${empty loggedInUser.name}">
 				<a href="users?registration"><spring:message code="homePage.registrationLink"/> </a>
@@ -26,6 +28,8 @@
 			</c:otherwise>
 		</c:choose>
 	</div>
+
+
 		<div class="nav nav-pills">
 			<div style="float:right; margin-right: auto">
 				<a href="categories?create">Categories</a>

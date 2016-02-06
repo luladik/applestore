@@ -6,6 +6,8 @@ import com.madislav.store.model.Customer;
 import com.madislav.store.model.Product;
 import com.madislav.store.model.service.ProductService;
 import com.madislav.store.model.service.PurchaseService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,17 +28,20 @@ public class CartController {
     @Autowired
     PurchaseService purchaseService;
 
+    private static final Logger logger = LoggerFactory.getLogger(CartController.class);
+
     @RequestMapping(value = "/cart/add/{productId}")
     public String addToCart(@PathVariable("productId") Long productId,
                             @RequestHeader("referer") String referedFrom) {
         Product product = productService.findProduct(productId);
         cart.addProduct(product, 1);
+        logger.debug("Adding product to a cart" + product.getName() + "::::" + product);
         return "redirect:" + referedFrom;
     }
 
     @RequestMapping(value = "/cart", method = RequestMethod.GET)
     public String showCart(Model model) {
-        model.addAttribute("cart");
+        model.addAttribute("cart", cart);
         return "cart";
     }
 
