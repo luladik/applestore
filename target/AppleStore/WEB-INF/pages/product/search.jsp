@@ -19,10 +19,10 @@
 			<form:input type="text" path="name" class="form-control"  />
 			<%--<form:errors path="name" />--%>
 		</div>
-		<div>
+		<div class="sel">
 			<label>Category:</label>
 			<form:select path="category.id" class="form-control">
-				<form:option value="0" label="--- All Categories ---"/>
+				<form:option value="NONE"> --- All Categories ---</form:option>
 				<form:options items="${categories}" itemLabel="name" itemValue="id" />
 			</form:select>
 		</div>

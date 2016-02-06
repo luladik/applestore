@@ -50,7 +50,7 @@ public class SearchController {
         }
     }
 
-    @ModelAttribute
+    @ModelAttribute(value = "categories")
     public List<Category> fetchAllCategories() {
         return categoryService.getAllCategories();
     }
