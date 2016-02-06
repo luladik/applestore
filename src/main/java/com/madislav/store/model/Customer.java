@@ -19,29 +19,29 @@ public class Customer {
 	@Column(name = "id")
 	private Long id;
 
-	@NotEmpty
-	@Length(min = 5, max = 20, message = "incorrect")
+	@NotEmpty(message = "Username should be from 5 to 20")
+	@Length(min = 5, max = 20, message = "Check if your username has from 5 to 20 characters")
 	private String name;
 
-	@NotEmpty
-	@Email
-	@Length(min = 5, max = 20, message = "incorrect")
+	@NotEmpty(message = "Email incorrect")
+	@Email(message = "Email incorrect")
+	@Length(min = 5, max = 20, message = "Email incorrect")
 	private String email;
 
-	@NotEmpty
-	@Length(min = 5, max = 20, message = "incorrect")
+	@NotEmpty(message = "Field must not be empty")
+	@Length(min = 2, max = 20, message = "First name must contains from 2 to 20 characters")
 	private String firstName;
 
-	@NotEmpty
-	@Length(min = 5, max = 20, message = "incorrect")
+	@NotEmpty(message = "Field must not be empty")
+	@Length(min = 2, max = 20, message = "Last name must contains from 2 to 20 characters")
 	private String lastName;
 
 	@NotBlank
 	@Valid
-	@Length(min = 5, max = 20, message = "incorrect")
+	@Length(min = 5, max = 20, message = "Password must contains from 6 to 20 characters")
 	private String password;
 
-	@Length(min = 5, max = 20, message = "incorrect")
+	@Length(min = 10, max = 10, message = "Format: 0**")
 	private String phone;
 
 	public Customer() {}
