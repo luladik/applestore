@@ -14,6 +14,7 @@ com\madislav\store\bean\Cart.class
 com\madislav\store\controller\LoginController.class
 com\madislav\store\model\PurchaseItem.class
 com\packtpub\springmvc\chocolatestore\handler\GlobalExceptionHandler.class
+com\madislav\store\interceptor\SecurityInterceptor.class
 com\madislav\store\model\Category.class
 com\madislav\store\model\Purchase.class
 com\madislav\store\model\service\CustomerService.class
