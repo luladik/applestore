@@ -11,7 +11,7 @@
     <definition name="base" template="/WEB-INF/pages/tiles/template.jsp">
         <put-attribute name="title" value="" />
         <put-attribute name="header" value="/WEB-INF/pages/tiles/header.jsp" />
-        <put-attribute name="menu" value="/WEB-INF/pages/tiles/menu.jsp" />
+        <put-attribute name="top" value="/WEB-INF/pages/tiles/top.jsp" />
         <put-attribute name="body" value="" />
         <put-attribute name="footer" value="/WEB-INF/pages/tiles/footer.jsp" />
     </definition>

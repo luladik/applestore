@@ -13,7 +13,7 @@
 	<h2>Edit Product</h2>
 	<div class="form-group form">
 	<form:form name="input" method="post" modelAttribute="product"
-		action="/products/${product.id}">
+		action="/products/${product.id}" enctype="multipart/form-data">
 		<div>
 			<label>Name: </label>
 			<form:input class="form-control" type="text" path="name" />
@@ -27,6 +27,10 @@
 		<div>
 			<label>Category:</label>
 			<form:select path="category.id" items="${categories}" itemLabel="name" itemValue="id" class="form-control" />
+		</div>
+		<div>
+			<label>IMG: </label>
+			<form:input class="form-control" path="image" type="file"/>
 		</div>
 		<div>
 			<label>Featured?</label>

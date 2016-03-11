@@ -82,6 +82,51 @@ public class ProductController {
 		return "product/edit";
 	}
 
+//	@RequestMapping(value = "/person/add", method = RequestMethod.POST)
+//	public String addPersonFromForm(@Valid Product product,
+//									BindingResult bindingResult,
+//									@RequestParam(value = "image", required = false) MultipartFile image) {
+//
+//		if (!image.isEmpty()) {
+//			try {
+//				validateImage(image);
+//
+//			} catch (RuntimeException re) {
+//				bindingResult.reject(re.getMessage());
+//				return "redirect:/product?create";
+//			}
+//
+//			try {
+//				saveImage(product.getName() + ".jpg", image);
+//			} catch (IOException e) {
+//				bindingResult.reject(e.getMessage());
+//				return "redirect:/product?create";
+//			}
+//		}
+//
+//		productService.saveProduct(product);
+//		return "redirect:/products";
+//	}
+//
+//	private void validateImage(MultipartFile image) {
+//		if (!image.getContentType().equals("image/jpeg")) {
+//			throw new RuntimeException("Only JPG images are accepted");
+//		}
+//	}
+//
+//	private void saveImage(String filename, MultipartFile image)
+//			throws RuntimeException, IOException {
+//		try {
+//			File file = new File("/resources/img/" + filename);
+//
+//			FileUtils.writeByteArrayToFile(file, image.getBytes());
+//			System.out.println("Go to the location:  " + file.toString()
+//					+ " on your computer and verify that the image has been stored.");
+//		} catch (IOException e) {
+//			throw e;
+//		}
+//	}
+
 	@ExceptionHandler(Exception.class)
 	  public ModelAndView errorHandler(HttpServletRequest req, Exception exception) {
 //	    logger.error("Request: " + req.getRequestURL() + " raised " + exception);
@@ -92,6 +137,7 @@ public class ProductController {
 	    mav.setViewName("error");
 	    return mav;
 	  }
+
 
 	
 	

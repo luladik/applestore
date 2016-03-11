@@ -31,7 +31,6 @@ public class HomeController {
 
 		List<Product> featuredProducts = productService.getFeaturedProducts();
 
-		model.addAttribute("message", "Hello world!");
 		model.addAttribute("productList", featuredProducts);
 		return "home";
 	}
