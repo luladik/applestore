@@ -6,7 +6,7 @@
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
-    <jsp:include page="/WEB-INF/pages/include/head-include.jsp"/>
+    <%--<jsp:include page="/WEB-INF/pages/include/head-include.jsp"/>--%>
     <title>Login</title>
 </head>
 <body>

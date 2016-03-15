@@ -7,7 +7,6 @@
   <jsp:include page="/WEB-INF/pages/include/head-include.jsp"/>
   <title>Create Product</title>
 </head>
-</head>
 <body>
 <div class="container">
 

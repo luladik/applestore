@@ -4,17 +4,17 @@
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
-    <jsp:include page="/WEB-INF/pages/include/head-include.jsp"/>
 </head>
 <body>
-<div class="container">
 
+<div class="container">
     <h2>Create Product</h2>
 </div>
 <div class="jumbotron">
     <div class="container">
         <form:form name="input" method="post"
                    modelAttribute="product" action="/products">
+
             <fieldset class="form-group">
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Name:</label>
@@ -60,7 +60,6 @@
                     </div>
                 </div>
             </fieldset>
-
 
 
             <fieldset class="form-group">

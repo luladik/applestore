@@ -3,44 +3,96 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-	<meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
-	<jsp:include page="/WEB-INF/pages/include/head-include.jsp"/>
-	<title>Edit Product</title>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
 </head>
 <body>
 
-	<div class="container">
-	<h2>Edit Product</h2>
-	<div class="form-group form">
-	<form:form name="input" method="post" modelAttribute="product"
-		action="/products/${product.id}" enctype="multipart/form-data">
-		<div>
-			<label>Name: </label>
-			<form:input class="form-control" type="text" path="name" />
-			<form:errors path="name" />
-		</div>
-		<div>
-			<label>Description: </label>
-			<form:textarea class="form-control" path="description" />
-			<form:errors path="description" />
-		</div>
-		<div>
-			<label>Category:</label>
-			<form:select path="category.id" items="${categories}" itemLabel="name" itemValue="id" class="form-control" />
-		</div>
-		<div>
-			<label>IMG: </label>
-			<form:input class="form-control" path="image" type="file"/>
-		</div>
-		<div>
-			<label>Featured?</label>
-			<form:checkbox path="featured" class="form-control" /> 
-		</div>
-		<div>
-			<input class="form-control submit" type="submit" value="Submit">
-		</div>
-	</form:form>
-	</div>
-	</div>
+<div class="container">
+    <h2>Edit Product</h2>
+</div>
+
+<div class="jumbotron">
+    <div class="container">
+        <form:form name="input" method="post"
+                   modelAttribute="product" action="/products/${product.id}">
+            <fieldset class="form-group">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Name:</label>
+
+                    <div class="col-sm-10">
+                        <form:input class="form-control" type="text" path="name"/>
+                        <form:errors path="name"/>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset class="form-group">
+                <div>
+                    <label class="col-sm-2">Description:</label>
+
+                    <div class="col-sm-10">
+                        <form:textarea rows="5" class="form-control" path="description"
+                                       cssStyle="resize: vertical;"/>
+                        <form:errors path="description"/>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset class="form-group">
+                <div>
+                    <label class="col-sm-2">Category:</label>
+
+                    <div class="col-sm-10" style="color: black">
+                        <form:select path="category.id" items="${categories}" itemLabel="name"
+                                     itemValue="id">
+                        </form:select>
+                        <form:errors path="category"/>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset class="form-group">
+                <div>
+                    <label class="col-sm-2">Featured:</label>
+
+                    <div class="col-sm-1">
+                        <form:checkbox path="featured" class="form-control" cssStyle="width: 1.5em; height: 1.5em;"/>
+                        <form:errors path="featured"/>
+                    </div>
+                </div>
+            </fieldset>
+
+
+            <fieldset class="form-group">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Image URL:</label>
+
+                    <div class="col-sm-10">
+                        <form:input class="form-control" type="text" path="imagePath"/>
+                        <form:errors path="imagePath"/>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset class="form-group">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Price:</label>
+
+                    <div class="col-sm-2">
+                        <form:input class="form-control" type="number" path="price"/>
+                        <form:errors path="price"/>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset class="form-group">
+                <label class="col-sm-2"></label>
+
+                <div class="col-sm-3">
+                    <input class="btn btn-default" type="submit" value="Submit">
+                </div>
+            </fieldset>
+        </form:form>
+    </div>
+</div>
 </body>
 </html>

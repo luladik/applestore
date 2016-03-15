@@ -7,138 +7,95 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.Map;
 
 @Controller
 @RequestMapping("/products")
 public class ProductController {
-	
+
 //	private static final Logger logger = LoggerFactory.getLogger(ProductController.class);
-	
-	@Autowired
-	ProductService productService;
-	@Autowired
-	CategoryService categoryService;
-	
-	public ProductService getProductService() {
-		return productService;
-	}
 
-	public void setProductService(ProductService productService) {
-		this.productService = productService;
-	}
-	
-	@RequestMapping(params = "ftl")
-	public String getProducts(Model model) {
-		model.addAttribute("products", productService.findAllProducts());
-		return "productlist";
-	}
+    @Autowired
+    ProductService productService;
+    @Autowired
+    CategoryService categoryService;
 
-	@RequestMapping(params = "create")
-	public String createForm(Model model) {
-		model.addAttribute("product", new Product());
-		model.addAttribute("categories", categoryService.getAllCategories());
-		return "product/create";
-	}
+    public ProductService getProductService() {
+        return productService;
+    }
 
-	@RequestMapping(method = RequestMethod.POST)
-	public String saveProduct(@ModelAttribute("product") @Valid Product product,
-			BindingResult result, Model model) {
-		if (result.hasErrors()) {
-			model.addAttribute("categories", categoryService.getAllCategories());
-			return "product/create";
-		}
-		productService.saveProduct(product);
-		return "redirect:/products/" + product.getId();
-	}
+    public void setProductService(ProductService productService) {
+        this.productService = productService;
+    }
 
-	@RequestMapping(value = "/{id}", method = RequestMethod.POST)
-	public String updateProduct(@ModelAttribute("product") @Valid Product product,
-			BindingResult result) {
-		if (result.hasErrors()) {
-			return "product/register";
-		}
-		productService.updateProduct(product);
-		return "redirect:/products/" + product.getId();
-	}
-	@RequestMapping(value = "/{id}")
-	public ModelAndView getProduct(@PathVariable("id") Long productId) {
-		Product product = productService.findProduct(productId);
-		return new ModelAndView("product/view", "product", product);
-		
-	}
-	
-	@RequestMapping(value = "/{id}/edit", method = RequestMethod.GET)
-	public String editProduct(@PathVariable("id") Long productId,
-			Map<String, Object> model) {
-		Product product = productService.findProduct(productId);
-		model.put("product", product);
-		model.put("categories", categoryService.getAllCategories());
-		return "product/edit";
-	}
+    @RequestMapping(params = "ftl")
+    public String getProducts(Model model) {
+        model.addAttribute("products", productService.findAllProducts());
+        return "productlist";
+    }
 
-//	@RequestMapping(value = "/person/add", method = RequestMethod.POST)
-//	public String addPersonFromForm(@Valid Product product,
-//									BindingResult bindingResult,
-//									@RequestParam(value = "image", required = false) MultipartFile image) {
+    @RequestMapping(params = "create")
+    public String createForm(Model model) {
+        model.addAttribute("product", new Product());
+        model.addAttribute("categories", categoryService.getAllCategories());
+        return "product/create";
+    }
+
+    @RequestMapping(method = RequestMethod.POST)
+    public String saveProduct(@ModelAttribute("product") @Valid Product product,
+                              BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            model.addAttribute("categories", categoryService.getAllCategories());
+            return "product/create";
+        }
+        productService.saveProduct(product);
+        return "redirect:/products/" + product.getId();
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.POST)
+    public String updateProduct(@ModelAttribute("product") @Valid Product product,
+                                BindingResult result) {
+//        if (result.hasErrors()) {
+//            System.out.println(result.getAllErrors());
+//            return "product/register";
+//        }
+        productService.updateProduct(product);
+        return "redirect:/products/" + product.getId();
+    }
+
+    @RequestMapping(value = "/{id}")
+    public ModelAndView getProduct(@PathVariable("id") Long productId) {
+        Product product = productService.findProduct(productId);
+        return new ModelAndView("product/view", "product", product);
+
+    }
+
+    @RequestMapping(value = "/{id}/edit", method = RequestMethod.GET)
+    public String editProduct(@PathVariable("id") Long productId,
+                              Map<String, Object> model) {
+        Product product = productService.findProduct(productId);
+        model.put("product", product);
+        model.put("categories", categoryService.getAllCategories());
+        return "product/edit";
+    }
+
+//    @ExceptionHandler(Exception.class)
+//    public ModelAndView errorHandler(HttpServletRequest req, Exception exception) {
+////	    logger.error("Request: " + req.getRequestURL() + " raised " + exception);
 //
-//		if (!image.isEmpty()) {
-//			try {
-//				validateImage(image);
-//
-//			} catch (RuntimeException re) {
-//				bindingResult.reject(re.getMessage());
-//				return "redirect:/product?create";
-//			}
-//
-//			try {
-//				saveImage(product.getName() + ".jpg", image);
-//			} catch (IOException e) {
-//				bindingResult.reject(e.getMessage());
-//				return "redirect:/product?create";
-//			}
-//		}
-//
-//		productService.saveProduct(product);
-//		return "redirect:/products";
-//	}
-//
-//	private void validateImage(MultipartFile image) {
-//		if (!image.getContentType().equals("image/jpeg")) {
-//			throw new RuntimeException("Only JPG images are accepted");
-//		}
-//	}
-//
-//	private void saveImage(String filename, MultipartFile image)
-//			throws RuntimeException, IOException {
-//		try {
-//			File file = new File("/resources/img/" + filename);
-//
-//			FileUtils.writeByteArrayToFile(file, image.getBytes());
-//			System.out.println("Go to the location:  " + file.toString()
-//					+ " on your computer and verify that the image has been stored.");
-//		} catch (IOException e) {
-//			throw e;
-//		}
-//	}
-
-	@ExceptionHandler(Exception.class)
-	  public ModelAndView errorHandler(HttpServletRequest req, Exception exception) {
-//	    logger.error("Request: " + req.getRequestURL() + " raised " + exception);
-
-	    ModelAndView mav = new ModelAndView();
-	    mav.addObject("exception", exception);
-	    mav.addObject("url", req.getRequestURL());
-	    mav.setViewName("error");
-	    return mav;
-	  }
+//        ModelAndView mav = new ModelAndView();
+//        mav.addObject("exception", exception);
+//        mav.addObject("url", req.getRequestURL());
+//        mav.setViewName("error");
+//        return mav;
+//    }
 
 
-	
-	
 }
