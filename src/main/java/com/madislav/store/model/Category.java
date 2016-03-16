@@ -1,12 +1,13 @@
 package com.madislav.store.model;
 import org.codehaus.jackson.annotate.JsonIgnore;
+import org.hibernate.validator.constraints.Length;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.web.context.WebApplicationContext;
 
 import javax.persistence.*;
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,16 +25,20 @@ public class Category {
     private Long id;
 
     @NotNull
-    @Size(max = 100)
-    private String name;
+	@Length(min = 4, max = 100, message = "Product title should be from 4 to 100")
+	private String name;
 
     @NotNull
-    @Size(max = 700)
+	@Length(min = 10, max = 255, message = "Description is very short")
     private String description;
+
+	@Length(min = 3, max = 255, message = "Incorrect image URL")
+	private String imagePath;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
     private List<Product> products = new ArrayList<Product>();
 
+	@Valid
 	public Long getId() {
         return this.id;
     }
@@ -41,7 +46,8 @@ public class Category {
 	public void setId(Long id) {
         this.id = id;
     }
-	
+
+	@Valid
 	public String getName() {
         return this.name;
     }
@@ -50,6 +56,7 @@ public class Category {
         this.name = name;
     }
 
+	@Valid
 	public String getDescription() {
         return this.description;
     }
@@ -57,6 +64,15 @@ public class Category {
 	public void setDescription(String description) {
         this.description = description;
     }
+
+	@Valid
+	public String getImagePath() {
+		return this.imagePath;
+	}
+
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
+	}
 
 	@JsonIgnore
 	public List<Product> getProducts() {

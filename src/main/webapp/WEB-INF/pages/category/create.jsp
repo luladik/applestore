@@ -3,32 +3,59 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-  <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
-  <jsp:include page="/WEB-INF/pages/include/head-include.jsp"/>
-  <title>Create Product</title>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
 </head>
 <body>
 <div class="container">
+    <h2>Create Category</h2>
+</div>
+<div class="jumbotron">
+    <div class="container">
+        <form:form name="input" method="post"
+                   modelAttribute="category" action="/categories">
+            <fieldset class="form-group">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Name:</label>
 
-  <h2>Create Category</h2>
-  <div class="form-group form">
-    <form:form name="input"  method="post"
-               modelAttribute="category" action="/categories">
-      <div>
-        <label>Name: </label>
-        <form:input class="form-control" type="text" path="name" />
-        <%--<form:errors path="name" />--%>
-      </div>
-      <div>
-        <label>Description: </label>
-        <form:textarea class="form-control" path="description" />
-        <%--<form:errors path="description" />--%>
-      </div>
-      <div>
-        <input class="form-control" type="submit" value="Submit">
-      </div>
-    </form:form>
-  </div>
+                    <div class="col-sm-10">
+                        <form:input class="form-control" type="text" path="name"/>
+                        <form:errors path="name"/>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset class="form-group">
+                <div>
+                    <label class="col-sm-2">Description:</label>
+
+                    <div class="col-sm-10">
+                        <form:textarea rows="5" class="form-control" path="description"
+                                       cssStyle="resize: vertical;"/>
+                        <form:errors path="description"/>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset class="form-group">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Image URL:</label>
+
+                    <div class="col-sm-10">
+                        <form:input class="form-control" type="text" path="imagePath"/>
+                        <form:errors path="imagePath"/>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset class="form-group">
+                <label class="col-sm-2"></label>
+
+                <div class="col-sm-3">
+                    <input class="btn btn-primary" type="submit" value="Submit">
+                </div>
+            </fieldset>
+        </form:form>
+    </div>
 </div>
 </body>
 </html>

@@ -88,7 +88,7 @@
                 <label class="col-sm-2"></label>
 
                 <div class="col-sm-3">
-                    <input class="btn btn-default" type="submit" value="Submit">
+                    <input class="btn btn-primary" type="submit" value="Submit">
                 </div>
             </fieldset>
         </form:form>

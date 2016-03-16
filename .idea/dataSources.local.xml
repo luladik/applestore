@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="MySQL - applestore@localhost" uuid="4ac8c90f-bc4c-452e-b97e-4975e46a82cd">
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <schema-pattern>applestore.*</schema-pattern>
+      <default-schemas>applestore.*</default-schemas>
+    </data-source>
+  </component>
+</project>

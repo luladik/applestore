@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - applestore@localhost" uuid="4ac8c90f-bc4c-452e-b97e-4975e46a82cd">
+    <database-info product="MySQL" version="5.7.9-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="applestore"/>
+    <table name="category" schema="" catalog="applestore" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="description" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="name" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="FK_rlaghtegr0yx2c1q1s6nkqjlh" table="product" schema="" catalog="applestore" columns="category_id"/>
+    </table>
+    <table name="customer" schema="" catalog="applestore" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="email" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="firstName" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="lastName" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="name" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="password" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="phone" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="FK_3hcpovt4qwt9f7oe2l9ueq130" table="purchase" schema="" catalog="applestore" columns="orderedBy_id"/>
+    </table>
+    <table name="product" schema="" catalog="applestore" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="description" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="featured" sqlType="BIT" precision="1" scale="0" nullable="true" jdbcType="-7"/>
+      <column name="imagePath" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="name" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="price" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8"/>
+      <column name="category_id" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FK_rlaghtegr0yx2c1q1s6nkqjlh" columns="category_id" ref-table="category" ref-schema="" ref-catalog="applestore" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="FK_3poh82lyte5wfc5nmmt9sh3sk" table="purchaseitem" schema="" catalog="applestore" columns="product_id"/>
+      <index name="FK_rlaghtegr0yx2c1q1s6nkqjlh" unique="false" columns="category_id"/>
+    </table>
+    <table name="purchase" schema="" catalog="applestore" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="completed" sqlType="BIT" precision="1" scale="0" nullable="true" jdbcType="-7"/>
+      <column name="orderDate" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="version" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="orderedBy_id" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FK_3hcpovt4qwt9f7oe2l9ueq130" columns="orderedBy_id" ref-table="customer" ref-schema="" ref-catalog="applestore" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="FK_3fmo5ht627va4bx0uk45lx9g" table="purchaseitem" schema="" catalog="applestore" columns="purchase_id"/>
+      <index name="FK_3hcpovt4qwt9f7oe2l9ueq130" unique="false" columns="orderedBy_id"/>
+    </table>
+    <table name="purchaseitem" schema="" catalog="applestore" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="orderDate" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="quantity" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="version" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="product_id" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="purchase_id" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FK_3fmo5ht627va4bx0uk45lx9g" columns="purchase_id" ref-table="purchase" ref-schema="" ref-catalog="applestore" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_3poh82lyte5wfc5nmmt9sh3sk" columns="product_id" ref-table="product" ref-schema="" ref-catalog="applestore" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK_3fmo5ht627va4bx0uk45lx9g" unique="false" columns="purchase_id"/>
+      <index name="FK_3poh82lyte5wfc5nmmt9sh3sk" unique="false" columns="product_id"/>
+    </table>
+  </data-source>
+</component>

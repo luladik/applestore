@@ -7,78 +7,24 @@
     <%--<title><spring:message code="welcome"/></title>--%>
 </head>
 <body>
-<div class="container">
 
-    <div class="container">
-        <div class="row">
+<div class="container-fluid">
+    <div class="row">
+        <c:forEach var="category" items="${allCategories}">
             <div class="col-sm-3">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">Black Friday Deal</div>
-                    <div class="panel-body"><img src="/resources/img/iphone.jpg" class="img-responsive"
+                <div class="panel panel-default">
+                    <%--<div class="panel-heading">${category.name}</div>--%>
+                    <div class="panel-body"><img src="${category.imagePath}" class="img-responsive"
                                                  style="width: 100%"
                                                  alt="Image"></div>
-                    <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+                    <div class="panel-footer">${category.name}</div>
                 </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">Black Friday Deal</div>
-                    <div class="panel-body"><img src="/resources/img/iphone.jpg" class="img-responsive"
-                                                 style="width: 100%"
-                                                 alt="Image"></div>
-                    <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">Black Friday Deal</div>
-                    <div class="panel-body"><img src="/resources/img/iphone.jpg" class="img-responsive"
-                                                 style="width: 100%"
-                                                 alt="Image"></div>
-                    <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">Black Friday Deal</div>
-                    <div class="panel-body"><img src="/resources/img/iphone.jpg" class="img-responsive"
-                                                 style="width: 100%"
-                                                 alt="Image"></div>
-                    <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">Black Friday Deal</div>
-                    <div class="panel-body"><img src="/resources/img/iphone.jpg" class="img-responsive"
-                                                 style="width: 100%"
-                                                 alt="Image"></div>
-                    <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
-                </div>
-            </div>
+                <div>
 
-        </div>
+                </div>
+            </div>
+        </c:forEach>
     </div>
-
-    <%--<div class="container">--%>
-    <%--<div class="left-container">--%>
-    <%--<h2>Products</h2>--%>
-    <%--<c:forEach var="item" items="${productList}">--%>
-    <%--<div class="row">--%>
-    <%--<c:out value="${item.name}"/> &nbsp;--%>
-    <%--<a href="cart/add/${item.id}">Add to cart</a> <br/>--%>
-    <%--</div>--%>
-    <%--</c:forEach>--%>
-    <%--</div>--%>
-
-    <%--<div class="right-container">--%>
-    <%--<h2>Categories</h2>--%>
-    <%--<c:forEach var="category" items="${allCategories}">--%>
-    <%--<a href="categories/${category.id}"><c:out value="${category.name}"/></a> <br/>--%>
-    <%--</c:forEach>--%>
-    <%--</div>--%>
-    <%--</div>--%>
-
 </div>
 </body>
 </html>

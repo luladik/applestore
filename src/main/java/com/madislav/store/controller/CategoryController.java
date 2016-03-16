@@ -49,11 +49,11 @@ public class CategoryController {
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.POST)
-	public String updateCategory(@ModelAttribute("category") @Valid Category category,
+	public String updateCategory(@Valid @ModelAttribute("category")  Category category,
 								BindingResult result) {
-		if (result.hasErrors()) {
-			return "category/register";
-		}
+//		if (result.hasErrors()) {
+//			return "category/register";
+//		}
 		categoryService.updateCategory(category);
 		return "redirect:/categories/" + category.getId();
 	}
@@ -65,7 +65,7 @@ public class CategoryController {
 	}
 
 	@RequestMapping(value = "/{id}/edit", method = RequestMethod.GET)
-	public String editCategory(@PathVariable("id") Long categoryId,
+	public String editCategory(@Valid @PathVariable("id") Long categoryId,
 							  Map<String, Object> model) {
 		Category category = categoryService.findCategory(categoryId);
 		model.put("category", category);

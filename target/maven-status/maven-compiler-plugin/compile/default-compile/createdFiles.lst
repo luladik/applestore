@@ -4,6 +4,7 @@ com\madislav\store\model\Customer.class
 com\madislav\store\controller\CategoryController.class
 com\madislav\store\model\dao\CustomerDao.class
 com\madislav\store\model\dao\CategoryDao.class
+com\madislav\store\viewresolvers\XmlViewResolver.class
 com\madislav\store\controller\HomeController.class
 com\madislav\store\model\Product.class
 com\madislav\store\WebInitializer.class
@@ -13,7 +14,6 @@ com\madislav\store\model\dao\ProductDao.class
 com\madislav\store\bean\Cart.class
 com\madislav\store\controller\LoginController.class
 com\madislav\store\model\PurchaseItem.class
-com\packtpub\springmvc\chocolatestore\handler\GlobalExceptionHandler.class
 com\madislav\store\interceptor\SecurityInterceptor.class
 com\madislav\store\model\Category.class
 com\madislav\store\model\Purchase.class
@@ -24,5 +24,6 @@ com\madislav\store\model\service\ProductService.class
 com\madislav\store\model\service\PurchaseItemService.class
 com\madislav\store\model\dao\PurchaseDao.class
 com\madislav\store\controller\CartController.class
+com\madislav\store\viewresolvers\JsonViewResolver.class
 com\madislav\store\controller\SearchController.class
 com\madislav\store\model\dao\PurchaseItemDao.class

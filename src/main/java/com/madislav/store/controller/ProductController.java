@@ -49,7 +49,7 @@ public class ProductController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public String saveProduct(@ModelAttribute("product") @Valid Product product,
+    public String saveProduct(@Valid @ModelAttribute("product") Product product,
                               BindingResult result, Model model) {
         if (result.hasErrors()) {
             model.addAttribute("categories", categoryService.getAllCategories());
@@ -60,7 +60,7 @@ public class ProductController {
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.POST)
-    public String updateProduct(@ModelAttribute("product") @Valid Product product,
+    public String updateProduct(@Valid @ModelAttribute("product") Product product,
                                 BindingResult result) {
 //        if (result.hasErrors()) {
 //            System.out.println(result.getAllErrors());
@@ -78,7 +78,7 @@ public class ProductController {
     }
 
     @RequestMapping(value = "/{id}/edit", method = RequestMethod.GET)
-    public String editProduct(@PathVariable("id") Long productId,
+    public String editProduct(@Valid @PathVariable("id") Long productId,
                               Map<String, Object> model) {
         Product product = productService.findProduct(productId);
         model.put("product", product);

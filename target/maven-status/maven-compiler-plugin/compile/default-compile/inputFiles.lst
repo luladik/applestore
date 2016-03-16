@@ -1,5 +1,7 @@
+C:\Users\Luladik\IdeaProjects\AppleStore\src\main\java\com\madislav\store\viewresolvers\XmlViewResolver.java
 C:\Users\Luladik\IdeaProjects\AppleStore\src\main\java\com\madislav\store\GlobalExceptionHandler.java
 C:\Users\Luladik\IdeaProjects\AppleStore\src\main\java\com\madislav\store\WebInitializer.java
+C:\Users\Luladik\IdeaProjects\AppleStore\src\main\java\com\madislav\store\viewresolvers\JsonViewResolver.java
 C:\Users\Luladik\IdeaProjects\AppleStore\src\main\java\com\madislav\store\model\service\ProductService.java
 C:\Users\Luladik\IdeaProjects\AppleStore\src\main\java\com\madislav\store\model\service\CustomerService.java
 C:\Users\Luladik\IdeaProjects\AppleStore\src\main\java\com\madislav\store\controller\CartController.java
@@ -24,4 +26,6 @@ C:\Users\Luladik\IdeaProjects\AppleStore\src\main\java\com\madislav\store\model\
 C:\Users\Luladik\IdeaProjects\AppleStore\src\main\java\com\madislav\store\controller\UserController.java
 C:\Users\Luladik\IdeaProjects\AppleStore\src\main\java\com\madislav\store\model\dao\CustomerDao.java
 C:\Users\Luladik\IdeaProjects\AppleStore\src\main\java\com\madislav\store\ProductSearchValidator.java
+C:\Users\Luladik\IdeaProjects\AppleStore\src\main\java\com\madislav\store\interceptor\SecurityInterceptor.java
+C:\Users\Luladik\IdeaProjects\AppleStore\src\main\java\com\madislav\store\viewresolvers\ProductValidator.java
 C:\Users\Luladik\IdeaProjects\AppleStore\src\main\java\com\madislav\store\controller\LoginController.java

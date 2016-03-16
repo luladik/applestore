@@ -3,19 +3,15 @@
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
-    <jsp:include page="/WEB-INF/pages/include/head-include.jsp"/>
-    <title>View Category</title>
 </head>
 <body>
 <div class="container">
-    <h2>View Category</h2>
-    <div><strong> Name: </strong></div>
-    <div> ${category.name} </div>
-    <div><strong> Description: </strong> </div>
-    <div> ${category.description}</div>
+    <div class="row">
+        <div class="col-md-6"><h2>View Category</h2></div>
+        <div class="col-md-6"><a href="/categories/${category.id}/edit">Edit Category</a></div>
+    </div>
 
-
-    <a href="/categories/${category.id}/edit">Edit Category</a>
+    <strong> ${category.name} </strong>
 
 
     <h2>Products</h2>
@@ -24,6 +20,8 @@
         <c:out value="${item.name}"/> <br/>
     </c:forEach>
 </div>
+
+<div>Description: ${category.description}</div>
 
 </body>
 </html>

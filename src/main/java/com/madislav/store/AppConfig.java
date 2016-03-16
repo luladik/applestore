@@ -39,11 +39,11 @@ public class AppConfig extends WebMvcConfigurerAdapter {
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new SecurityInterceptor()).addPathPatterns("/cart/**");
     }
+
     //TransactionBeans
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory
-    (DataSource dataSource, JpaVendorAdapter jpaVendorAdapter)
-    {
+    (DataSource dataSource, JpaVendorAdapter jpaVendorAdapter) {
         LocalContainerEntityManagerFactoryBean entityManagerFactory = new LocalContainerEntityManagerFactoryBean();
         entityManagerFactory.setDataSource(dataSource);
         entityManagerFactory.setJpaVendorAdapter(jpaVendorAdapter);
@@ -54,13 +54,13 @@ public class AppConfig extends WebMvcConfigurerAdapter {
     }
 
     @Bean
-    public PlatformTransactionManager transactionManager(EntityManagerFactory emf){
+    public PlatformTransactionManager transactionManager(EntityManagerFactory emf) {
         return new JpaTransactionManager(emf);
     }
-//
+
+    //
     @Bean
-    public JpaVendorAdapter jpaVendorAdapter()
-    {
+    public JpaVendorAdapter jpaVendorAdapter() {
         HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
         adapter.setShowSql(true); //old = true
         adapter.setGenerateDdl(true); //old = false
@@ -70,8 +70,7 @@ public class AppConfig extends WebMvcConfigurerAdapter {
     }
 
     @Bean
-    public DataSource dataSource()
-    {
+    public DataSource dataSource() {
         DriverManagerDataSource ds = new DriverManagerDataSource();
         ds.setDriverClassName("com.mysql.jdbc.Driver");
         ds.setUrl("jdbc:mysql://localhost:3306/applestore");
@@ -80,6 +79,7 @@ public class AppConfig extends WebMvcConfigurerAdapter {
 
         return ds;
     }
+
     //ViewResolvers
     @Bean
     public InternalResourceViewResolver internalResourceViewResolver() {
@@ -95,13 +95,13 @@ public class AppConfig extends WebMvcConfigurerAdapter {
     public FreeMarkerViewResolver freeMarkerViewResolver() {
         FreeMarkerViewResolver resolver = new FreeMarkerViewResolver();
         resolver.setCache(true); //old - false
-        // resolver.setPrefix("");
+        resolver.setPrefix("");
         resolver.setSuffix(".ftl");
         resolver.setOrder(1);
         return resolver;
     }
 
-    @Bean(name ="freemarkerConfig")
+    @Bean(name = "freemarkerConfig")
     public FreeMarkerConfigurer freemarkerConfig() {
         FreeMarkerConfigurer configurer = new FreeMarkerConfigurer();
         configurer.setTemplateLoaderPath("/WEB-INF/pages/ftl");
@@ -134,6 +134,7 @@ public class AppConfig extends WebMvcConfigurerAdapter {
     public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
         configurer.ignoreUnknownPathExtensions(false).defaultContentType(MediaType.TEXT_HTML);
     }
+
     @Override
     public void configureViewResolvers(ViewResolverRegistry registry) {
         registry.freeMarker();
