@@ -18,53 +18,53 @@ import java.util.Map.Entry;
 @Transactional
 public class PurchaseService {
 
-	@Autowired
-	private PurchaseDao purchaseDao;
-	
-	public long countAllPurchases() {
+    @Autowired
+    private PurchaseDao purchaseDao;
+
+    public long countAllPurchases() {
         return purchaseDao.countPurchases();
     }
 
-	public void deletePurchase(Purchase purchase) {
-		purchaseDao.remove(purchase);
+    public void deletePurchase(Purchase purchase) {
+        purchaseDao.remove(purchase);
     }
 
-	public Purchase findPurchase(Long id) {
+    public Purchase findPurchase(Long id) {
         return purchaseDao.findPurchase(id);
     }
 
-	public List<Purchase> findAllPurchases() {
+    public List<Purchase> findAllPurchases() {
         return purchaseDao.findAllPurchases();
     }
 
-	public List<Purchase> findPurchaseEntries(int firstResult, int maxResults) {
+    public List<Purchase> findPurchaseEntries(int firstResult, int maxResults) {
         return purchaseDao.findPurchaseEntries(firstResult, maxResults);
     }
 
-	public void savePurchase(Purchase purchase) {
-		purchaseDao.persist(purchase);
+    public void savePurchase(Purchase purchase) {
+        purchaseDao.persist(purchase);
     }
 
-	public Purchase updatePurchase(Purchase purchase) {
+    public Purchase updatePurchase(Purchase purchase) {
         return purchaseDao.merge(purchase);
     }
 
-	public void savePurchase(Map<Product, Integer> cartContents, Customer purchasedBy) {
-		
-		Purchase purchase = new Purchase();
-		Calendar now = Calendar.getInstance();
-		for (Entry<Product, Integer> entry : cartContents.entrySet()) {
-			PurchaseItem purchaseItem = new PurchaseItem();
-			purchaseItem.setProduct(entry.getKey());
-			purchaseItem.setQuantity(entry.getValue());
-			purchaseItem.setOrderDate(now);
-			
-			purchaseItem.setPurchase(purchase);
-			purchase.getPurchaseItems().add(purchaseItem);
-		}
-		purchase.setOrderDate(now);
-		purchase.setOrderedBy(purchasedBy);
-		
-		this.savePurchase(purchase);
-	}
+    public void savePurchase(Map<Product, Integer> cartContents, Customer purchasedBy) {
+
+        Purchase purchase = new Purchase();
+        Calendar now = Calendar.getInstance();
+        for (Entry<Product, Integer> entry : cartContents.entrySet()) {
+            PurchaseItem purchaseItem = new PurchaseItem();
+            purchaseItem.setProduct(entry.getKey());
+            purchaseItem.setQuantity(entry.getValue());
+            purchaseItem.setOrderDate(now);
+
+            purchaseItem.setPurchase(purchase);
+            purchase.getPurchaseItems().add(purchaseItem);
+        }
+        purchase.setOrderDate(now);
+        purchase.setOrderedBy(purchasedBy);
+
+        this.savePurchase(purchase);
+    }
 }

@@ -1,8 +1,10 @@
 C:\Users\Luladik\IdeaProjects\AppleStore\src\main\java\com\madislav\store\viewresolvers\XmlViewResolver.java
 C:\Users\Luladik\IdeaProjects\AppleStore\src\main\java\com\madislav\store\GlobalExceptionHandler.java
 C:\Users\Luladik\IdeaProjects\AppleStore\src\main\java\com\madislav\store\WebInitializer.java
+C:\Users\Luladik\IdeaProjects\AppleStore\src\main\java\com\madislav\store\model\UserRole.java
 C:\Users\Luladik\IdeaProjects\AppleStore\src\main\java\com\madislav\store\viewresolvers\JsonViewResolver.java
 C:\Users\Luladik\IdeaProjects\AppleStore\src\main\java\com\madislav\store\model\service\ProductService.java
+C:\Users\Luladik\IdeaProjects\AppleStore\src\main\java\com\madislav\store\SpringMvcInitializer.java
 C:\Users\Luladik\IdeaProjects\AppleStore\src\main\java\com\madislav\store\model\service\CustomerService.java
 C:\Users\Luladik\IdeaProjects\AppleStore\src\main\java\com\madislav\store\controller\CartController.java
 C:\Users\Luladik\IdeaProjects\AppleStore\src\main\java\com\madislav\store\model\dao\ProductDao.java
@@ -11,6 +13,7 @@ C:\Users\Luladik\IdeaProjects\AppleStore\src\main\java\com\madislav\store\model\
 C:\Users\Luladik\IdeaProjects\AppleStore\src\main\java\com\madislav\store\controller\HomeController.java
 C:\Users\Luladik\IdeaProjects\AppleStore\src\main\java\com\madislav\store\model\PurchaseItem.java
 C:\Users\Luladik\IdeaProjects\AppleStore\src\main\java\com\madislav\store\bean\Cart.java
+C:\Users\Luladik\IdeaProjects\AppleStore\src\main\java\com\madislav\store\SpringSecurityInitializer.java
 C:\Users\Luladik\IdeaProjects\AppleStore\src\main\java\com\madislav\store\model\service\PurchaseItemService.java
 C:\Users\Luladik\IdeaProjects\AppleStore\src\main\java\com\madislav\store\controller\SearchController.java
 C:\Users\Luladik\IdeaProjects\AppleStore\src\main\java\com\madislav\store\model\Category.java
@@ -18,6 +21,7 @@ C:\Users\Luladik\IdeaProjects\AppleStore\src\main\java\com\madislav\store\model\
 C:\Users\Luladik\IdeaProjects\AppleStore\src\main\java\com\madislav\store\controller\CategoryController.java
 C:\Users\Luladik\IdeaProjects\AppleStore\src\main\java\com\madislav\store\model\Product.java
 C:\Users\Luladik\IdeaProjects\AppleStore\src\main\java\com\madislav\store\model\dao\CategoryDao.java
+C:\Users\Luladik\IdeaProjects\AppleStore\src\main\java\com\madislav\store\SecurityConfig.java
 C:\Users\Luladik\IdeaProjects\AppleStore\src\main\java\com\madislav\store\model\Purchase.java
 C:\Users\Luladik\IdeaProjects\AppleStore\src\main\java\com\madislav\store\model\service\PurchaseService.java
 C:\Users\Luladik\IdeaProjects\AppleStore\src\main\java\com\madislav\store\AppConfig.java

@@ -1,89 +1,48 @@
 package com.madislav.store;
 
 import com.madislav.store.interceptor.SecurityInterceptor;
+import com.madislav.store.model.service.CustomUserDetailsService;
 import freemarker.template.utility.XmlEscape;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.http.MediaType;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import org.springframework.orm.jpa.JpaTransactionManager;
-import org.springframework.orm.jpa.JpaVendorAdapter;
-import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
-import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
-import org.springframework.transaction.PlatformTransactionManager;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.config.annotation.*;
-import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
+import org.springframework.web.servlet.view.UrlBasedViewResolver;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver;
 import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
 import org.springframework.web.servlet.view.tiles3.TilesView;
 import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 
-import javax.persistence.EntityManagerFactory;
-import javax.sql.DataSource;
 import java.util.HashMap;
 import java.util.Map;
 
 @Configuration
 @EnableWebMvc
-@EnableTransactionManagement
+//@EnableTransactionManagement
+//@Import({SecurityConfig.class})
 @ComponentScan("com.madislav.store")
 public class AppConfig extends WebMvcConfigurerAdapter {
+
+    @Bean(name = "userDetailsService")
+    public UserDetailsService getUserDetailsService(){
+        return new CustomUserDetailsService();
+    }
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new SecurityInterceptor()).addPathPatterns("/cart/**");
     }
 
-    //TransactionBeans
-    @Bean
-    public LocalContainerEntityManagerFactoryBean entityManagerFactory
-    (DataSource dataSource, JpaVendorAdapter jpaVendorAdapter) {
-        LocalContainerEntityManagerFactoryBean entityManagerFactory = new LocalContainerEntityManagerFactoryBean();
-        entityManagerFactory.setDataSource(dataSource);
-        entityManagerFactory.setJpaVendorAdapter(jpaVendorAdapter);
-        //com.madislav.store.model
-        //entityManagerFactory.setPersistenceUnitName("Manager");
-        entityManagerFactory.setPackagesToScan("com.madislav.store");
-        return entityManagerFactory;
-    }
-
-    @Bean
-    public PlatformTransactionManager transactionManager(EntityManagerFactory emf) {
-        return new JpaTransactionManager(emf);
-    }
-
-    //
-    @Bean
-    public JpaVendorAdapter jpaVendorAdapter() {
-        HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
-        adapter.setShowSql(true); //old = true
-        adapter.setGenerateDdl(true); //old = false
-        adapter.setDatabasePlatform("org.hibernate.dialect.MySQLDialect");
-
-        return adapter;
-    }
-
-    @Bean
-    public DataSource dataSource() {
-        DriverManagerDataSource ds = new DriverManagerDataSource();
-        ds.setDriverClassName("com.mysql.jdbc.Driver");
-        ds.setUrl("jdbc:mysql://localhost:3306/applestore");
-        ds.setUsername("root");
-        ds.setPassword("root");
-
-        return ds;
-    }
-
     //ViewResolvers
     @Bean
-    public InternalResourceViewResolver internalResourceViewResolver() {
-        InternalResourceViewResolver resolver = new InternalResourceViewResolver();
+    public UrlBasedViewResolver setupViewResolver() {
+        UrlBasedViewResolver resolver = new UrlBasedViewResolver();
         resolver.setPrefix("/WEB-INF/pages/");
         resolver.setSuffix(".jsp");
         resolver.setViewClass(JstlView.class);

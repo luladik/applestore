@@ -21,14 +21,13 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 public class CartController {
+    private static final Logger logger = LoggerFactory.getLogger(CartController.class);
     @Autowired
     ProductService productService;
     @Autowired
-    private Cart cart;
-    @Autowired
     PurchaseService purchaseService;
-
-    private static final Logger logger = LoggerFactory.getLogger(CartController.class);
+    @Autowired
+    private Cart cart;
 
     @RequestMapping(value = "/cart/add/{productId}")
     public String addToCart(@PathVariable("productId") Long productId,

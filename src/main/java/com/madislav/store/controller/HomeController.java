@@ -17,19 +17,19 @@ import java.util.List;
 @RequestMapping("/")
 public class HomeController {
 
-	@Autowired
-	ProductService productService;
-	@Autowired
-	CategoryService categoryService;
+    @Autowired
+    ProductService productService;
+    @Autowired
+    CategoryService categoryService;
 
-	@RequestMapping(method = RequestMethod.GET)
-	public String printWelcome(ModelMap model) {
+    @RequestMapping(method = RequestMethod.GET)
+    public String printWelcome(ModelMap model) {
 
-		List<Product> featuredProducts = productService.getFeaturedProducts();
+        List<Product> featuredProducts = productService.getFeaturedProducts();
 
-		model.addAttribute("productList", featuredProducts);
-		return "home";
-	}
+        model.addAttribute("productList", featuredProducts);
+        return "home";
+    }
 
 //	@ExceptionHandler(Exception.class)
 //	public ModelAndView errorHandler(HttpServletRequest req, Exception exception) {
@@ -42,10 +42,10 @@ public class HomeController {
 //		return mav;
 //	}
 
-	@ModelAttribute("allCategories")
-	public List<Category> fetchAllCategories() {
-		return categoryService.getAllCategories();
-	}
+    @ModelAttribute("allCategories")
+    public List<Category> fetchAllCategories() {
+        return categoryService.getAllCategories();
+    }
 
 //	@ExceptionHandler(Exception.class)
 //	public ModelAndView resolveException(HttpServletRequest request,

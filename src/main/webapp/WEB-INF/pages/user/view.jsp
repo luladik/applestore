@@ -8,6 +8,7 @@
 </head>
 <body>
 <h2>View Profile</h2>
+
 <div>Name: ${user.firstName} ${user.lastName}</div>
 <div>Email: ${user.email}</div>
 

@@ -1,4 +1,4 @@
-//package com.madislav.store.viewresolvers;
+package com.madislav.store.viewresolvers;//package com.madislav.store.viewresolvers;
 ////Created by Luladik on 3/15/2016.
 //
 //import com.madislav.store.model.Product;

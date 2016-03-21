@@ -1,4 +1,5 @@
 package com.madislav.store.model;
+
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import org.codehaus.jackson.annotate.JsonIgnore;
@@ -11,15 +12,15 @@ import java.util.Calendar;
 @Entity
 @Table(name = "purchaseitem")
 public class PurchaseItem {
-	
-	@Id
+
+    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long id;
 
-	@Version
+    @Version
     @Column(name = "version")
-	
+
     private Integer version;
 
     @NotNull
@@ -27,7 +28,7 @@ public class PurchaseItem {
     @DateTimeFormat(style = "M-")
     private Calendar orderDate;
 
-    @ManyToOne(fetch=FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JsonIgnore
     private Product product;
 
@@ -38,57 +39,58 @@ public class PurchaseItem {
     @JsonIgnore
     private Purchase purchase;
 
-	public Long getId() {
+    public Long getId() {
         return this.id;
     }
 
-	public void setId(Long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-	@JsonIgnore
-	public Integer getVersion() {
+    @JsonIgnore
+    public Integer getVersion() {
         return this.version;
     }
 
-	public void setVersion(Integer version) {
+    public void setVersion(Integer version) {
         this.version = version;
     }
-	public String toString() {
+
+    public String toString() {
         return ReflectionToStringBuilder.toString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
 
-	public Calendar getOrderDate() {
+    public Calendar getOrderDate() {
         return this.orderDate;
     }
 
-	public void setOrderDate(Calendar orderDate) {
+    public void setOrderDate(Calendar orderDate) {
         this.orderDate = orderDate;
     }
-	
-	@JsonIgnore
-	public Product getProduct() {
+
+    @JsonIgnore
+    public Product getProduct() {
         return this.product;
     }
 
-	public void setProduct(Product product) {
+    public void setProduct(Product product) {
         this.product = product;
     }
 
-	public int getQuantity() {
+    public int getQuantity() {
         return this.quantity;
     }
 
-	public void setQuantity(int quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
-	@JsonIgnore
-	public Purchase getPurchase() {
+    @JsonIgnore
+    public Purchase getPurchase() {
         return this.purchase;
     }
 
-	public void setPurchase(Purchase purchase) {
+    public void setPurchase(Purchase purchase) {
         this.purchase = purchase;
     }
 }

@@ -23,7 +23,7 @@
                     <a href="users?registration">Sign Up</a>
                 </li>
                 <li class>
-                    <a href="login">Login</a>
+                    <a href="/login">Login</a>
                 </li>
             </c:when>
             <c:otherwise>

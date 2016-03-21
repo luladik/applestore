@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="563402949">
+  <component name="DataSourceManagerImpl" format="xml" hash="782163890">
     <data-source source="LOCAL" name="MySQL - applestore@localhost" uuid="4ac8c90f-bc4c-452e-b97e-4975e46a82cd">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>

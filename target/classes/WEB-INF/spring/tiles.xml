@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<!-- This file contains Apache Tiles page layout definitions -->
+
+<tiles-definitions>
+
+    <!--The main definition with header, menu, body and footer -->
+    <definition name="base" template="/WEB-INF/pages/tiles/template.jsp">
+        <put-attribute name="title" value=""/>
+        <put-attribute name="header" value="/WEB-INF/pages/tiles/header.jsp"/>
+        <put-attribute name="body" value=""/>
+        <put-attribute name="footer" value="/WEB-INF/pages/tiles/footer.jsp"/>
+    </definition>
+
+    <!--Product-->
+    <definition name="product/create" extends="base">
+        <put-attribute name="title" value="Add New Product"/>
+        <put-attribute name="body" value="/WEB-INF/pages/product/create.jsp"/>
+    </definition>
+
+    <definition name="product/edit" extends="base">
+        <put-attribute name="title" value="Product Edit"/>
+        <put-attribute name="body" value="/WEB-INF/pages/product/edit.jsp"/>
+    </definition>
+
+    <definition name="product/view" extends="base">
+        <!--Тут в тайтл надо заебашить имя продукта-->
+        <put-attribute name="title" value="Product View"/>
+        <put-attribute name="body" value="/WEB-INF/pages/product/view.jsp"/>
+    </definition>
+
+    <!--Category-->
+    <definition name="category/create" extends="base">
+        <put-attribute name="title" value="Add New Category"/>
+        <put-attribute name="body" value="/WEB-INF/pages/category/create.jsp"/>
+    </definition>
+
+    <definition name="category/edit" extends="base">
+        <put-attribute name="title" value="Category Edit"/>
+        <put-attribute name="body" value="/WEB-INF/pages/category/edit.jsp"/>
+    </definition>
+
+    <definition name="category/view" extends="base">
+        <!--Тут в тайтл надо заебашить имя категории-->
+        <put-attribute name="title" value="Category View"/>
+        <put-attribute name="body" value="/WEB-INF/pages/category/view.jsp"/>
+    </definition>
+
+    <!--Other-->
+    <definition name="home" extends="base">
+        <put-attribute name="title" value="Home"/>
+        <put-attribute name="body" value="/WEB-INF/pages/home.jsp"/>
+    </definition>
+
+    <definition name="cart" extends="base">
+        <put-attribute name="title" value="Cart"/>
+        <put-attribute name="body" value="/WEB-INF/pages/cart.jsp"/>
+    </definition>
+
+</tiles-definitions>

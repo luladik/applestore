@@ -12,34 +12,34 @@ import java.util.List;
 @Transactional
 public class PurchaseItemService {
 
-	@Autowired
-	private PurchaseItemDao purchaseItemDao;
-	
-	public long countAllPurchaseItems() {
+    @Autowired
+    private PurchaseItemDao purchaseItemDao;
+
+    public long countAllPurchaseItems() {
         return purchaseItemDao.countPurchaseItems();
     }
 
-	public void deletePurchaseItem(PurchaseItem purchaseItem) {
-		purchaseItemDao.remove(purchaseItem);
+    public void deletePurchaseItem(PurchaseItem purchaseItem) {
+        purchaseItemDao.remove(purchaseItem);
     }
 
-	public PurchaseItem findPurchaseItem(Long id) {
+    public PurchaseItem findPurchaseItem(Long id) {
         return purchaseItemDao.findPurchaseItem(id);
     }
 
-	public List<PurchaseItem> findAllPurchaseItems() {
+    public List<PurchaseItem> findAllPurchaseItems() {
         return purchaseItemDao.findAllPurchaseItems();
     }
 
-	public List<PurchaseItem> findPurchaseItemEntries(int firstResult, int maxResults) {
+    public List<PurchaseItem> findPurchaseItemEntries(int firstResult, int maxResults) {
         return purchaseItemDao.findPurchaseItemEntries(firstResult, maxResults);
     }
 
-	public void savePurchaseItem(PurchaseItem purchaseItem) {
-		purchaseItemDao.persist(purchaseItem);
+    public void savePurchaseItem(PurchaseItem purchaseItem) {
+        purchaseItemDao.persist(purchaseItem);
     }
 
-	public PurchaseItem updatePurchaseItem(PurchaseItem purchaseItem) {
+    public PurchaseItem updatePurchaseItem(PurchaseItem purchaseItem) {
         return purchaseItemDao.merge(purchaseItem);
     }
 }

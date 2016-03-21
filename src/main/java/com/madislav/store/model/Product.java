@@ -38,8 +38,13 @@ public class Product {
     private Boolean featured;
 
     @NumberFormat(style = NumberFormat.Style.NUMBER)
-    @DecimalMin("10.0") @DecimalMax("50000.0")
+    @DecimalMin("10.0")
+    @DecimalMax("50000.0")
     private double price;
+
+    public Product() {
+
+    }
 
     @Valid
     public String getName() {

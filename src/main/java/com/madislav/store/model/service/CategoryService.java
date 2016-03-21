@@ -12,38 +12,38 @@ import java.util.List;
 @Transactional
 public class CategoryService {
 
-	@Autowired
-	private CategoryDao categoryDao;
-	
-	public long countAllCategorys() {
+    @Autowired
+    private CategoryDao categoryDao;
+
+    public long countAllCategorys() {
         return categoryDao.countCategories();
     }
 
-	public void deleteCategory(Category category) {
-		categoryDao.remove(category);
+    public void deleteCategory(Category category) {
+        categoryDao.remove(category);
     }
 
-	public Category findCategory(Long id) {
+    public Category findCategory(Long id) {
         return categoryDao.findCategory(id);
     }
-	
-	public Category findCategoryEagerly(Long id) {
+
+    public Category findCategoryEagerly(Long id) {
         return categoryDao.findCategoryEagerly(id);
     }
 
-	public List<Category> getAllCategories() {
+    public List<Category> getAllCategories() {
         return categoryDao.findAllCategories();
     }
 
-	public List<Category> findCategoryEntries(int firstResult, int maxResults) {
+    public List<Category> findCategoryEntries(int firstResult, int maxResults) {
         return categoryDao.findCategoryEntries(firstResult, maxResults);
     }
 
-	public void saveCategory(Category category) {
-		categoryDao.persist(category);
+    public void saveCategory(Category category) {
+        categoryDao.persist(category);
     }
 
-	public Category updateCategory(Category category) {
+    public Category updateCategory(Category category) {
         return categoryDao.merge(category);
     }
 }

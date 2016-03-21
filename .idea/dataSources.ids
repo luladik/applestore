@@ -11,6 +11,7 @@
       <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
       <column name="description" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="false" jdbcType="-1"/>
       <column name="name" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="imagePath" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
       <exported-key name="FK_rlaghtegr0yx2c1q1s6nkqjlh" table="product" schema="" catalog="applestore" columns="category_id"/>
     </table>
@@ -20,10 +21,20 @@
       <column name="firstName" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
       <column name="lastName" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
       <column name="name" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
-      <column name="password" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="password" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
       <column name="phone" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12"/>
+      <column name="state" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="FK_3cubsj5x99rn4dkqifbttpk1g" table="customer_userprofile" schema="" catalog="applestore" columns="customer_id"/>
       <exported-key name="FK_3hcpovt4qwt9f7oe2l9ueq130" table="purchase" schema="" catalog="applestore" columns="orderedBy_id"/>
+    </table>
+    <table name="customer_userprofile" schema="" catalog="applestore" type="TABLE">
+      <column name="customer_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="userprofile_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="customer_id,userprofile_id"/>
+      <foreign-key name="FK_3cubsj5x99rn4dkqifbttpk1g" columns="customer_id" ref-table="customer" ref-schema="" ref-catalog="applestore" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_df47la20r4xel27wpchimm3x2" columns="userprofile_id" ref-table="userprofile" ref-schema="" ref-catalog="applestore" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK_df47la20r4xel27wpchimm3x2" unique="false" columns="userprofile_id"/>
     </table>
     <table name="product" schema="" catalog="applestore" type="TABLE">
       <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
@@ -61,6 +72,12 @@
       <foreign-key name="FK_3poh82lyte5wfc5nmmt9sh3sk" columns="product_id" ref-table="product" ref-schema="" ref-catalog="applestore" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
       <index name="FK_3fmo5ht627va4bx0uk45lx9g" unique="false" columns="purchase_id"/>
       <index name="FK_3poh82lyte5wfc5nmmt9sh3sk" unique="false" columns="product_id"/>
+    </table>
+    <table name="userprofile" schema="" catalog="applestore" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="type" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="FK_df47la20r4xel27wpchimm3x2" table="customer_userprofile" schema="" catalog="applestore" columns="userprofile_id"/>
     </table>
   </data-source>
 </component>

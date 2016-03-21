@@ -9,6 +9,8 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import javax.validation.Valid;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "customer")
@@ -20,7 +22,7 @@ public class Customer {
     private Long id;
 
     @NotEmpty
-    @Length(min = 5, max = 20, message = "Check if your username has from 5 to 20 characters")
+    @Length(min = 3, max = 20, message = "Check if your username has from 5 to 20 characters")
     private String name;
 
     @NotEmpty
@@ -38,11 +40,20 @@ public class Customer {
 
     @NotBlank(message = "")
     @Valid
-    @Length(min = 5, max = 20, message = "Password must contains from 6 to 20 characters")
+    @Length(min = 3, message = "Password must contains from 6 to 20 characters")
     private String password;
 
     @Length(min = 10, max = 10, message = "Format: 0**")
     private String phone;
+
+    private String state = State.ACTIVE.getState();
+
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "customer_userprofile",
+            joinColumns = { @JoinColumn(name = "customer_id") },
+            inverseJoinColumns = { @JoinColumn(name = "userprofile_id") })
+    private Set<UserProfile> userProfiles = new HashSet<UserProfile>();
 
     public Customer() {
     }
@@ -64,6 +75,14 @@ public class Customer {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Set<UserProfile> getUserProfiles() {
+        return userProfiles;
+    }
+
+    public void setUserProfiles(Set<UserProfile> userProfiles) {
+        this.userProfiles = userProfiles;
     }
 
     @Valid
@@ -110,6 +129,14 @@ public class Customer {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
     }
 
     @Override

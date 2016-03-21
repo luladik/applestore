@@ -1,9 +1,9 @@
 package com.madislav.store;
 //Created by Luladik on 2/2/2016.
 
+import com.madislav.store.model.Product;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
-import com.madislav.store.model.Product;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 

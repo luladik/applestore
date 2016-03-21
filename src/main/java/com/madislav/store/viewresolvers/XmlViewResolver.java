@@ -2,7 +2,7 @@ package com.madislav.store.viewresolvers;
 //Created by Luladik on 2/8/2016.
 
 //implements view resolver
-public class XmlViewResolver  {
+public class XmlViewResolver {
 //    private Marshaller marshaller;
 //
 //    public View resolveViewName(String viewName, Locale locale) {

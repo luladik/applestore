@@ -1,66 +1,68 @@
 package com.madislav.store.model.dao;
 
 import com.madislav.store.model.Purchase;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.util.List;
 
+@Transactional
+@SuppressWarnings("unchecked")
 @Repository
 public class PurchaseDao {
 
-	@PersistenceContext
-    private EntityManager entityManager;
-     
+    @Autowired
+    private SessionFactory sessionFactory;
 
-	public long countPurchases() {
-        return entityManager.createQuery("SELECT COUNT(o) FROM Purchase o", Long.class).getSingleResult();
-    }
-
-	public List<Purchase> findAllPurchases() {
-        return entityManager.createQuery("SELECT o FROM Purchase o", Purchase.class).getResultList();
-    }
-
-	public Purchase findPurchase(Long id) {
-        if (id == null) return null;
-        return entityManager.find(Purchase.class, id);
-    }
-
-	public List<Purchase> findPurchaseEntries(int firstResult, int maxResults) {
-        return entityManager.createQuery("SELECT o FROM Purchase o", Purchase.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
-    }
-
-	@Transactional
     public void persist(Purchase purchase) {
-        entityManager.persist(purchase);
+        sessionFactory.getCurrentSession().persist(purchase);
     }
 
-	@Transactional
+    public long countPurchases() {
+        return (Long) sessionFactory.getCurrentSession().createQuery("SELECT COUNT(o) FROM Purchase o").uniqueResult();
+    }
+
+    public List<Purchase> findAllPurchases() {
+        return (List<Purchase>) sessionFactory.getCurrentSession()
+                .createQuery("SELECT o FROM Purchase o").uniqueResult();
+    }
+
+    public Purchase findPurchase(Long id) {
+        if (id == null) return null;
+        return (Purchase) sessionFactory.getCurrentSession().get(Purchase.class, id);
+    }
+
+    public List<Purchase> findPurchaseEntries(int firstResult, int maxResults) {
+        return (List<Purchase>) sessionFactory.getCurrentSession().createQuery("SELECT o FROM Purchase o")
+                .setFirstResult(firstResult).setMaxResults(maxResults).uniqueResult();
+    }
+
+
     public void remove(Purchase purchase) {
-        if (entityManager.contains(purchase)) {
-            entityManager.remove(purchase);
+        if (sessionFactory.getCurrentSession().contains(purchase)) {
+            sessionFactory.getCurrentSession().delete(purchase);
         } else {
             Purchase attached = findPurchase(purchase.getId());
-            entityManager.remove(attached);
+            sessionFactory.getCurrentSession().delete(attached);
         }
     }
 
-	@Transactional
+
     public void flush() {
-        entityManager.flush();
+        sessionFactory.getCurrentSession().flush();
     }
 
-	@Transactional
+
     public void clear() {
-        entityManager.clear();
+        sessionFactory.getCurrentSession().clear();
     }
 
-	@Transactional
+
     public Purchase merge(Purchase purchase) {
-        Purchase merged = entityManager.merge(purchase);
-        entityManager.flush();
+        Purchase merged = (Purchase) sessionFactory.getCurrentSession().merge(purchase);
+        sessionFactory.getCurrentSession().flush();
         return merged;
     }
 

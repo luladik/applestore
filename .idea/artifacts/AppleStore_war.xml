@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="war" build-on-make="true" name="AppleStore:war">
+  <artifact type="war" name="AppleStore:war">
     <output-path>$PROJECT_DIR$/target</output-path>
     <root id="archive" name="AppleStore.war">
       <element id="artifact" artifact-name="AppleStore:war exploded" />

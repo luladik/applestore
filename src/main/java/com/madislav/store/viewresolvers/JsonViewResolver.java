@@ -9,7 +9,7 @@ import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 import java.util.Locale;
 
 @Component
-public class JsonViewResolver implements ViewResolver{
+public class JsonViewResolver implements ViewResolver {
 
     public View resolveViewName(String viewName, Locale locale) throws Exception {
         MappingJackson2JsonView view = new MappingJackson2JsonView();

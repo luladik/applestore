@@ -21,56 +21,57 @@ public class CategoryController {
 
 //	private static final Logger logger = LoggerFactory.getLogger(ProductController.class);
 
-	@Autowired
-	CategoryService categoryService;
+    @Autowired
+    CategoryService categoryService;
 
-	public CategoryService getCategoryService() {
-		return categoryService;
-	}
+    public CategoryService getCategoryService() {
+        return categoryService;
+    }
 
-	public void setCategoryService(CategoryService categoryService) {
-		this.categoryService = categoryService;
-	}
+    public void setCategoryService(CategoryService categoryService) {
+        this.categoryService = categoryService;
+    }
 
-	@RequestMapping(params = "create")
-	public String createForm(Model model) {
-		model.addAttribute("category", new Category());
-		return "category/create";
-	}
+    @RequestMapping(params = "create")
+    public String createForm(Model model) {
+        model.addAttribute("category", new Category());
+        return "category/create";
+    }
 
-	@RequestMapping(method = RequestMethod.POST)
-	public String saveCategory(@ModelAttribute("category") @Valid Category category,
-							  BindingResult result, Model model) {
-		if (result.hasErrors()) {
-			return "category/create";
-		}
-		categoryService.saveCategory(category);
-		return "redirect:/categories/" + category.getId();
-	}
+    @RequestMapping(method = RequestMethod.POST)
+    public String saveCategory(@ModelAttribute("category") @Valid Category category,
+                               BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            return "category/create";
+        }
+        categoryService.saveCategory(category);
+        return "redirect:/categories/" + category.getId();
+    }
 
-	@RequestMapping(value = "/{id}", method = RequestMethod.POST)
-	public String updateCategory(@Valid @ModelAttribute("category")  Category category,
-								BindingResult result) {
+    @RequestMapping(value = "/{id}", method = RequestMethod.POST)
+    public String updateCategory(@Valid @ModelAttribute("category") Category category,
+                                 BindingResult result) {
 //		if (result.hasErrors()) {
 //			return "category/register";
 //		}
-		categoryService.updateCategory(category);
-		return "redirect:/categories/" + category.getId();
-	}
-	@RequestMapping(value = "/{id}")
-	public ModelAndView getCategory(@PathVariable("id") Long categoryId) {
-		Category category = categoryService.findCategoryEagerly(categoryId);
-		return new ModelAndView("category/view", "category", category);
+        categoryService.updateCategory(category);
+        return "redirect:/categories/" + category.getId();
+    }
 
-	}
+    @RequestMapping(value = "/{id}")
+    public ModelAndView getCategory(@PathVariable("id") Long categoryId) {
+        Category category = categoryService.findCategoryEagerly(categoryId);
+        return new ModelAndView("category/view", "category", category);
 
-	@RequestMapping(value = "/{id}/edit", method = RequestMethod.GET)
-	public String editCategory(@Valid @PathVariable("id") Long categoryId,
-							  Map<String, Object> model) {
-		Category category = categoryService.findCategory(categoryId);
-		model.put("category", category);
-		return "category/edit";
-	}
+    }
+
+    @RequestMapping(value = "/{id}/edit", method = RequestMethod.GET)
+    public String editCategory(@Valid @PathVariable("id") Long categoryId,
+                               Map<String, Object> model) {
+        Category category = categoryService.findCategory(categoryId);
+        model.put("category", category);
+        return "category/edit";
+    }
 //
 //	@ExceptionHandler(Exception.class)
 //	public ModelAndView errorHandler(HttpServletRequest req, Exception exception) {
@@ -82,7 +83,6 @@ public class CategoryController {
 //		mav.setViewName("product/error");
 //		return mav;
 //	}
-
 
 
 }

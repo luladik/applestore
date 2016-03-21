@@ -3,10 +3,27 @@ img {
     height: 20px;
 }
 
+.col-sm-2 {
+    align-items: center;
+
+}
+
+.panel-body {
+    justify-content: center;
+    justify-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
 .panel {
-    height: 150px;
-    width: 100px;
-    margin: 0;
+
+}
+
+.panel-primary {
+
+    height: 250px;
+    width: 150px;
+    position: relative;
+    border-color: #d1dbc1;
 }
 
 .container-fluid {
