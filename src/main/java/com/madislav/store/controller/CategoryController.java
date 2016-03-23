@@ -32,7 +32,7 @@ public class CategoryController {
         this.categoryService = categoryService;
     }
 
-    @RequestMapping(params = "create")
+    @RequestMapping(value = "/create")
     public String createForm(Model model) {
         model.addAttribute("category", new Category());
         return "category/create";

@@ -1,6 +1,5 @@
 package com.madislav.store;
 
-import com.madislav.store.interceptor.SecurityInterceptor;
 import com.madislav.store.model.service.CustomUserDetailsService;
 import freemarker.template.utility.XmlEscape;
 import org.springframework.context.annotation.Bean;
@@ -30,14 +29,14 @@ import java.util.Map;
 public class AppConfig extends WebMvcConfigurerAdapter {
 
     @Bean(name = "userDetailsService")
-    public UserDetailsService getUserDetailsService(){
+    public UserDetailsService getUserDetailsService() {
         return new CustomUserDetailsService();
     }
 
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new SecurityInterceptor()).addPathPatterns("/cart/**");
-    }
+//    @Override
+//    public void addInterceptors(InterceptorRegistry registry) {
+//        registry.addInterceptor(new SecurityInterceptor()).addPathPatterns("/cart/**");
+//    }
 
     //ViewResolvers
     @Bean

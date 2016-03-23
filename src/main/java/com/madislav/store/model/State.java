@@ -10,20 +10,20 @@ public enum State {
 
     private String state;
 
-    private State(final String state){
+    private State(final String state) {
         this.state = state;
     }
 
-    public String getState(){
+    public String getState() {
         return this.state;
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return this.state;
     }
 
-    public String getName(){
+    public String getName() {
         return this.name();
     }
 

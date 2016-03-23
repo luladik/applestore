@@ -51,8 +51,8 @@ public class Customer {
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "customer_userprofile",
-            joinColumns = { @JoinColumn(name = "customer_id") },
-            inverseJoinColumns = { @JoinColumn(name = "userprofile_id") })
+            joinColumns = {@JoinColumn(name = "customer_id")},
+            inverseJoinColumns = {@JoinColumn(name = "userprofile_id")})
     private Set<UserProfile> userProfiles = new HashSet<UserProfile>();
 
     public Customer() {

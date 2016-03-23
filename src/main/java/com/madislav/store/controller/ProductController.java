@@ -27,21 +27,13 @@ public class ProductController {
     @Autowired
     CategoryService categoryService;
 
-    public ProductService getProductService() {
-        return productService;
-    }
-
-    public void setProductService(ProductService productService) {
-        this.productService = productService;
-    }
-
     @RequestMapping(params = "ftl")
     public String getProducts(Model model) {
         model.addAttribute("products", productService.findAllProducts());
         return "productlist";
     }
 
-    @RequestMapping(params = "create")
+    @RequestMapping(value = "/create")
     public String createForm(Model model) {
         model.addAttribute("product", new Product());
         model.addAttribute("categories", categoryService.getAllCategories());

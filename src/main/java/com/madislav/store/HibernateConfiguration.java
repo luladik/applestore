@@ -17,7 +17,7 @@ import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
-@ComponentScan({ "com.madislav.store" })
+@ComponentScan({"com.madislav.store"})
 @PropertySource(value = {"classpath:META-INF/application.properties"})
 public class HibernateConfiguration {
 

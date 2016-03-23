@@ -22,12 +22,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void configureGlobalSecurity(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService);
     }
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/", "/categories").permitAll()
-                .antMatchers("/products/**").access("hasRole('ADMIN')")
-                .antMatchers("/cart/**").access("hasRole('ADMIN') and hasRole('DBA')")
+                .antMatchers("/products/create").access("hasRole('ADMIN')")
+                .antMatchers("/categories/create").access("hasRole('ADMIN')")
+                .antMatchers("/categories/{id}/edit").access("hasRole('ADMIN')")
+                .antMatchers("/products/{id}/edit").access("hasRole('ADMIN')")
                 .and().formLogin().loginPage("/login")
                 .usernameParameter("ssoId").passwordParameter("password")
                 .and().csrf()

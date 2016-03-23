@@ -4,11 +4,11 @@ package com.madislav.store.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name="userprofile")
+@Table(name = "userprofile")
 public class UserProfile {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String type = UserProfileType.USER.getUserProfileType();
@@ -60,7 +60,7 @@ public class UserProfile {
 
     @Override
     public String toString() {
-        return "UserProfile [id=" + id + ",  type=" + type  + "]";
+        return "UserProfile [id=" + id + ",  type=" + type + "]";
     }
 
 
