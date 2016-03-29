@@ -1,10 +1,6 @@
-img {
-    max-width: 150px;
-    height: 20px;
-}
-
 body {
     padding-top: 70px;
+    padding-bottom: 55px;
 }
 
 .navbar-default .navbar-brand {
@@ -15,46 +11,113 @@ body {
     color: #a7b3d3;
 }
 
-
-.navbar-default .navbar-nav>li>a {
+.navbar-default .navbar-nav > li > a {
     color: white;
 }
 
-.navbar-default .navbar-nav>li>a:hover {
+.navbar-default .navbar-nav > li > a:hover {
     color: #d30000;
 }
-
 
 #header {
     background-color: #313e57;
     margin-bottom: 10px;
 }
 
-.container-fluid {
-    align-items: center;
-    align-content: center;
-}
-
-
 .col-sm-2 {
     align-items: center;
+}
 
+.col-sm-3 {
+    align-items: center;
 }
 
 .panel-body {
+    vertical-align: middle;
+    height: 220px;
     justify-content: center;
     justify-items: center;
     margin-left: auto;
     margin-right: auto;
+    border: 0;
+    box-shadow: none;
 }
 
-.panel {
+#body .row {
+    margin-right: 40px;
+    margin-left: 40px;
+}
 
+.panel-body a {
+    vertical-align: middle;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+    alignment: center;
+}
+
+img {
+    vertical-align: middle;
+}
+
+.img-responsive {
+    vertical-align: middle;
+    width: 150px;
+    max-height: 220px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.panel-footer {
+    background-color: transparent;
+    text-align: center;
+    border: 0;
 }
 
 .panel-primary {
+    vertical-align: middle;
     height: 250px;
-    width: 150px;
     position: relative;
-    border-color: #d1dbc1;
+    border: 0;
+    box-shadow: none;
+    margin: 0;
 }
+
+.panel {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#footer .container-fluid {
+    background-color: #161f2c;;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#footer .navbar-default .navbar-nav > li > a:hover {
+    color: #d30000;
+}
+
+#footer
+.navbar-right {
+    float: left;
+}
+
+#footer {
+    background-color: black;
+}
+
+#footer .container-fluid {
+    padding-right: 0;
+    padding-left: 0;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+#footer .col-md-5 {
+    text-align: left;
+}
+
+

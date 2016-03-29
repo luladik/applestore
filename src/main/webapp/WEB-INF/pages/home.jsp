@@ -6,21 +6,23 @@
 <head>
 </head>
 <body>
-<div class="container">
-    <div class="container-fluid">
-        <div class="row">
-            <c:forEach var="category" items="${allCategories}">
-                <div class="col-sm-2">
-                    <div class="panel panel-primary">
-                        <div class="panel-body"><img src="${category.imagePath}" class="img-responsive"
-                                                     style="width: 100%"
-                                                     alt></div>
-                        <a href="/categories/${category.id}" style="margin-left:40px;">${category.name}</a>
-                        <%--<div class="panel-footer">${category.name}</div>--%>
+<div class="container" id="body">
+    <div class="row">
+        <c:forEach var="category" items="${allCategories}">
+            <div class="col-sm-3">
+                <div class="panel panel-primary">
+                    <div class="panel-body" style="text-align: center">
+                        <a href="/categories/${category.id}">
+                            <img src="${category.imagePath}" class="img-responsive" alt>
+                        </a>
                     </div>
+                    <div class="panel-footer">
+                        <a href="/categories/${category.id}">${category.name}</a>
+                    </div>
+                        <%--<div class="panel-footer">${category.name}</div>--%>
                 </div>
-            </c:forEach>
-        </div>
+            </div>
+        </c:forEach>
     </div>
 </div>
 </body>
