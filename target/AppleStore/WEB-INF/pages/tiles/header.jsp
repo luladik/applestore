@@ -3,10 +3,10 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid" id="header">
-        <div class="navbar-header">
+        <div class="navbar-header" style="margin-left: 10px">
             <a class="navbar-brand" href="/">APPLE STORE UA</a>
         </div>
-        <ul class="nav navbar-nav navbar-right">
+        <ul class="nav navbar-nav navbar-right" style="margin-right: 5px">
             <form class="navbar-form navbar-left" role="search">
                 <div class="form-group has-feedback">
                     <form:form>

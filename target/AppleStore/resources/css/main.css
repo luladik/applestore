@@ -21,7 +21,7 @@ body {
 }
 
 #header {
-    background-color: #162281;
+    background-color: #1408a4;
 }
 
 .col-sm-2 {
@@ -107,13 +107,6 @@ img {
 
 #footer {
     background-color: black;
-}
-
-#footer .container-fluid {
-    padding-right: 0;
-    padding-left: 0;
-    margin-right: 0;
-    margin-left: 0;
 }
 
 #footer .col-md-5 {
