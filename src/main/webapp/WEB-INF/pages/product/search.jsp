@@ -23,7 +23,7 @@
             <div class="sel">
                 <label>Category:</label>
                 <form:select path="category.id" class="form-control">
-                    <form:option value="NONE"> --- All Categories ---</form:option>
+                    <form:option value="0"> --- All Categories ---</form:option>
                     <form:options items="${categories}" itemLabel="name" itemValue="id"/>
                 </form:select>
             </div>
@@ -37,7 +37,6 @@
 
     <h2>Search Results:</h2>
 
-    <%--<jsp:useBean id="results" scope="request" type="com.madislav.store.controller.sea"/>--%>
     <c:forEach var="product" items="${results}">
         <c:out value="${product.name}"/> <br/>
     </c:forEach>

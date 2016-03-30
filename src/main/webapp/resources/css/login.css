@@ -45,4 +45,7 @@ input[type="password"] {
     border-top-right-radius: 0;
 }
 
+* {
+    border-radius: 0 !important;
+}
 

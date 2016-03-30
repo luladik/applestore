@@ -57,7 +57,7 @@ public class ProductDao {
                     .createQuery("SELECT o FROM Product o WHERE o.name like :name");
             query.setParameter("name", "%" + product.getName() + "%");
         }
-        return (List<Product>) query.uniqueResult();
+        return (List<Product>) query.list();
     }
 
 

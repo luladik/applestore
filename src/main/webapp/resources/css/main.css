@@ -16,12 +16,12 @@ body {
 }
 
 .navbar-default .navbar-nav > li > a:hover {
-    color: #d30000;
+    color: #f8702f;
+    text-shadow: none;
 }
 
 #header {
-    background-color: #313e57;
-    margin-bottom: 10px;
+    background-color: #162281;
 }
 
 .col-sm-2 {
@@ -120,4 +120,26 @@ img {
     text-align: left;
 }
 
+/*---*/
 
+.btn-danger {
+    background: #f8673e;
+    border: 2px solid #f8673e;
+}
+
+.btn-danger:hover {
+    background: #1c8e47;
+    border: 2px solid #1c8e47;
+}
+
+* {
+    border-radius: 0 !important;
+}
+
+p {
+    color: #d1d1d1;
+    border: none;
+    text-shadow: none;
+    margin-top: 5px;
+    font-size: 12px;
+}

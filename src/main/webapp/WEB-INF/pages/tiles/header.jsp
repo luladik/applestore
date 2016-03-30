@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid" id="header">
         <div class="navbar-header">
@@ -7,10 +8,13 @@
         </div>
         <ul class="nav navbar-nav navbar-right">
             <form class="navbar-form navbar-left" role="search">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search">
+                <div class="form-group has-feedback">
+                    <form:form>
+                        <input type="text" class="form-control" placeholder="Search">
+                        <i class="glyphicon glyphicon-search form-control-feedback"></i>
+                    </form:form>
+
                 </div>
-                <button type="submit" class="btn btn-default">Submit</button>
             </form>
             <sec:authorize access="hasRole('ADMIN')">
                 <li class>

@@ -24,8 +24,10 @@ public class SearchController {
 
     @Autowired
     ProductSearchValidator productSearchValidator;
+
     @Autowired
     ProductService productService;
+
     @Autowired
     CategoryService categoryService;
 
@@ -35,6 +37,8 @@ public class SearchController {
         return "product/search";
     }
 
+
+    //ok method
     @RequestMapping
     public String processSearch(@Valid Product product, BindingResult bindingResult, Model model) {
         List<Product> results = productService.findProducts(product);

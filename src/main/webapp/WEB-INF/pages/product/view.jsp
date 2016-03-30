@@ -11,18 +11,29 @@
 <body>
 <div class="container">
 
-    <h2>View Product</h2>
+    <h2 style="margin-left: 40px; margin-bottom: 20px">${product.name}</h2>
     <sec:authorize access="hasRole('ADMIN')">
-        <a href="<c:url value="/products/${product.id}/edit"/>">Edit Category</a>
+        <a href="<c:url value="/products/${product.id}/edit"/>">Edit Product</a>
     </sec:authorize>
-    <div><strong> Name: </strong></div>
-    <div> ${product.name} </div>
-    <div><strong> Description: </strong></div>
-    <div> ${product.description}</div>
-    <div>
-        <img src="${product.imagePath}" style="max-width: 500px; height: 200px">
+    <div class="container" style="margin-left: 50px">
+        <div class="row">
+            <div class="col-md-3">
+                <img src="${product.imagePath}" style="max-width: 300px; max-height: 400px">
+            </div>
+            <div class="col-md-5" style="margin-left: 50px"><strong> Description: </strong>
+
+                <div>${product.description}</div>
+                <h2>$${product.price}</h2>
+                <div style="margin-top: 20px">
+                    <a href="<c:url value="/cart/add/${product.id}"/> " class="btn btn-danger">
+                        <span class="glyphicon glyphicon-shopping-cart"></span>  Add To Cart
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
     </div>
-    <a href="<c:url value="/cart/add/${product.id}"/> ">Add To Cart</a>
 
 </div>
 </body>
