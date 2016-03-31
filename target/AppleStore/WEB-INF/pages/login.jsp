@@ -21,7 +21,7 @@
 
     <c:url var="loginUrl" value="/login"/>
     <form action="${loginUrl}" method="post" class="form-signin">
-        <h2 class="form-signin-heading">Please login</h2>
+        <h2 class="form-signin-heading">Login</h2>
         <c:if test="${param.error != null}">
             <div class="alert alert-danger">
                 <p>Invalid username or password.</p>
@@ -42,6 +42,7 @@
 
 
         <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+        <a href="/" class="btn btn-lg btn-danger btn-block btn-sm" >Cancel</a>
 
     </form>
 </div>

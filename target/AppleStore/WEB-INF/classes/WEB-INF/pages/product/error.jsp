@@ -13,7 +13,7 @@
 
     <p>Sorry, nothing here! There has been a server error or you are trying to view a page that is not available. </p>
 
-    <p>Why not go back to the <a href=".">home page</a> and look at available products? </p>
+    <p>Why not go back to the <a href="/">home page</a> and look at available products? </p>
 </div>
 </body>
 </html>

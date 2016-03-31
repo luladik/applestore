@@ -28,6 +28,11 @@
                 <%--<form:errors path="email" />--%>
         </div>
         <div>
+            <label>Phone:</label>
+            <form:input class="form-control" type="text" path="phone"/>
+                <%--<form:errors path="email" />--%>
+        </div>
+        <div>
             <label>First Name:</label>
             <form:input class="form-control" type="text" path="firstName"/>
                 <%--<form:errors path="firstName" />--%>

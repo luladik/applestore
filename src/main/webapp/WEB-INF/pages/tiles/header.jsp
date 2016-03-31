@@ -42,7 +42,7 @@
                     </a>
                 </li>
                 <li class>
-                    <a href="#" role="button">
+                    <a href="/users/${pageContext.request.userPrincipal.name}" role="button">
                         <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                         &nbsp;
                         <sec:authentication property="principal.username"/>

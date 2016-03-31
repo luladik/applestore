@@ -31,16 +31,6 @@ public class HomeController {
         return "home";
     }
 
-//	@ExceptionHandler(Exception.class)
-//	public ModelAndView errorHandler(HttpServletRequest req, Exception exception) {
-////	    logger.error("Request: " + req.getRequestURL() + " raised " + exception);
-//
-//		ModelAndView mav = new ModelAndView();
-//		mav.addObject("exception", exception);
-//		mav.addObject("url", req.getRequestURL());
-//		mav.setViewName("error");
-//		return mav;
-//	}
 
     @ModelAttribute("allCategories")
     public List<Category> fetchAllCategories() {

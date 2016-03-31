@@ -12,9 +12,7 @@
 <div class="container">
 
     <h2 style="margin-left: 40px; margin-bottom: 20px">${product.name}</h2>
-    <sec:authorize access="hasRole('ADMIN')">
-        <a href="<c:url value="/products/${product.id}/edit"/>">Edit Product</a>
-    </sec:authorize>
+
     <div class="container" style="margin-left: 50px">
         <div class="row">
             <div class="col-md-3">
@@ -24,17 +22,23 @@
 
                 <div>${product.description}</div>
                 <h2>$${product.price}</h2>
+
                 <div style="margin-top: 20px">
                     <a href="<c:url value="/cart/add/${product.id}"/> " class="btn btn-danger">
-                        <span class="glyphicon glyphicon-shopping-cart"></span>  Add To Cart
+                        <span class="glyphicon glyphicon-shopping-cart"></span> Add To Cart
                     </a>
                 </div>
+                <div>
+                    <sec:authorize access="hasRole('ADMIN')">
+                        <a href="<c:url value="/products/${product.id}/edit"/>"
+                           class="btn btn-warning btn-md">Edit Product</a>
+                    </sec:authorize>
+                </div>
+
 
             </div>
         </div>
-
     </div>
-
 </div>
 </body>
 </html>

@@ -20,8 +20,6 @@ import java.util.Map;
 @RequestMapping("/products")
 public class ProductController {
 
-//	private static final Logger logger = LoggerFactory.getLogger(ProductController.class);
-
     @Autowired
     ProductService productService;
     @Autowired
@@ -77,17 +75,5 @@ public class ProductController {
         model.put("categories", categoryService.getAllCategories());
         return "product/edit";
     }
-
-//    @ExceptionHandler(Exception.class)
-//    public ModelAndView errorHandler(HttpServletRequest req, Exception exception) {
-////	    logger.error("Request: " + req.getRequestURL() + " raised " + exception);
-//
-//        ModelAndView mav = new ModelAndView();
-//        mav.addObject("exception", exception);
-//        mav.addObject("url", req.getRequestURL());
-//        mav.setViewName("error");
-//        return mav;
-//    }
-
 
 }
